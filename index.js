@@ -7,11 +7,11 @@ var chokidar = require("chokidar");
 
 
 module.exports = function (source, target, opts, notify) {
-  opts = defaults(opts || {}, {
+  opts = defaults({
     "watch": false,
     "delete": false,
     "depth": Infinity
-  });
+  }, opts || {});
 
   if (typeof opts.depth !== "number" || isNaN(opts.depth)) {
     notify("error", "Expected valid number for option 'depth'");
